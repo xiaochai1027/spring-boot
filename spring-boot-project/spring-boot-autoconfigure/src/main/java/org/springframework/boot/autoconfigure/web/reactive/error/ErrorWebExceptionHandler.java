@@ -14,22 +14,17 @@
  * limitations under the License.
  */
 
-package org.springframework.boot.actuate.autoconfigure.web.servlet;
+package org.springframework.boot.autoconfigure.web.reactive.error;
+
+import org.springframework.web.server.WebExceptionHandler;
 
 /**
- * Provides information about the management servlet context for MVC controllers to use.
+ * Marker interface that indicates that a {@link WebExceptionHandler}
+ * is used to render errors.
  *
- * @author Phillip Webb
- * @author Madhura Bhave
+ * @author Brian Clozel
  * @since 2.0.0
  */
-@FunctionalInterface
-public interface ManagementServletContext {
-
-	/**
-	 * Return the servlet path of the management server.
-	 * @return the servlet path
-	 */
-	String getServletPath();
+public interface ErrorWebExceptionHandler extends WebExceptionHandler {
 
 }

@@ -14,22 +14,21 @@
  * limitations under the License.
  */
 
-package org.springframework.boot.actuate.autoconfigure.web.servlet;
+package org.springframework.boot.autoconfigure.web.reactive.error;
 
-/**
- * Provides information about the management servlet context for MVC controllers to use.
- *
- * @author Phillip Webb
- * @author Madhura Bhave
- * @since 2.0.0
- */
-@FunctionalInterface
-public interface ManagementServletContext {
+import javax.validation.constraints.NotNull;
 
-	/**
-	 * Return the servlet path of the management server.
-	 * @return the servlet path
-	 */
-	String getServletPath();
+public class DummyBody {
+
+	@NotNull
+	private String content;
+
+	public String getContent() {
+		return this.content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
 
 }

@@ -106,13 +106,14 @@ jobs:
       - include:
         - "/**/spring-boot-docs-*.zip"
         properties:
-          zip-type: "docs"
-          zip-deployed: "false"
+          "zip.type": "docs"
+          "zip.deployed": "false"
 - name: jdk9-build
   serial: true
   plan:
   - get: spring-boot-jdk9-ci-image
   - get: git-repo
+    trigger: true
   - do:
     - task: build-project
       timeout: 1h30m
@@ -247,8 +248,8 @@ jobs:
       ARTIFACTORY_PASSWORD: ((artifactory-password))
       BINTRAY_USERNAME: ((bintray-username))
       BINTRAY_PASSWORD: ((bintray-password))
-      SONATYPE_USERNAME: ((sonattype-username))
-      SONATYPE_PASSWORD: ((sonattype-password))
+      SONATYPE_USERNAME: ((sonatype-username))
+      SONATYPE_PASSWORD: ((sonatype-password))
       BINTRAY_SUBJECT: ((bintray-subject))
       BINTRAY_REPO: ((bintray-repo))
 groups:
